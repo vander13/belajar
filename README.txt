@@ -5,6 +5,3 @@ Cara menjalankan
 4. Ketika sudah selesai jalan kan perintah "node signaler.js"
 5. Cek dengan membuka browser localhost:8080
 
-Firebase 
-email : projectrtc209@gmail.com
-password : yogyakarta
