@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Upload Music & Lirik</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
+    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase-messaging.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase-functions.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase-storage.js"></script>
+    <script src="assets/bootstrap/js/jquery.min.js"></script>
+    <script src="assets/js/index.js"></script>
+</head>
+<body>
+    <h2>Upload Musik</h2>
+    <input id="musik" type="file"><br>
+    <h2>Lirik</h2>
+    <textarea id="lirik" cols="30" rows="10"></textarea><br>
+    <button id="simpan">Upload</button>
+
+
+    <script>
+    function encodeImageFileAsURL(cb) {
+        return function () {
+            var file = this.files[0];
+            var reader = new FileReader();
+            reader.onloadend = function () {
+                cb(reader.result);
+            }
+            reader.readAsDataURL(file);
+        }
+    }
+
+var av;
+$('#musik').change(encodeImageFileAsURL(function (base64Img) {
+    return av = base64Img;
+}));
+
+$('#simpan').click(function () {
+   var title = $('#musik').val().replace(/.*(\/|\\)/, '');
+   alert(title)
+   var ref = firebase.storage().ref('audio/' + title);
+   ref.putString(av, 'data_url').then(function (snapshot) {
+       if (snapshot.state == 'success') {
+            alert(title+' Berhasil Di Upload');   
+       }
+       
+   });
+   
+});
+
+
+        
+
+</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/main.css">
+    <script src="../assets/bootstrap/js/jquery.min.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase-messaging.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase-functions.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase-storage.js"></script>
+</head>
+<style>
+  body {
+  background: #22a6b3; /* fallback for old browsers */
+  background: -webkit-linear-gradient(right, #22a6b3, #22a6b3);
+  background: -moz-linear-gradient(right, #22a6b3, #22a6b3);
+  background: -o-linear-gradient(right, #22a6b3, #22a6b3);
+  background: linear-gradient(to left, #22a6b3, #22a6b3);
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;      
+}
+</style>
+<body>
+<div class="daftar-page">
+  <div class="form">
+    <label for="username">Username</label>
+      <input type="text" id="username" placeholder="Username"/>
+    <label for="password">Password</label>
+      <input type="password" id="password" placeholder="Password"/>
+    <label for="nama">Nama</label>
+      <input type="text" id="nama" placeholder="Nama"/>
+    <label for="date">Tanggal Lahir</label>
+      <input type="date" name="tanggal" id="tanggal">
+    <label for="avatar">Avatar</label>
+      <input onchange="encodeImageFileAsURL()" type="file" name="avatar" id="avatar">
+    <label for="gender">Jenis Kelamin</label> <br>
+    <label class="radio-inline"><input type="radio" name="gender" id="gender" value="1">Laki-Laki</label>
+        &nbsp;
+        &nbsp;
+    <label class="radio-inline"><input type="radio" name="gender" id="gender" value="2">Perempuan</label>
+      <button id="nextdaftar">Daftar</button>
+    <p class="message">Sudah Terdaftar? <a href="login">Login</a></p>
+  </div>
+</div>
+<script src="../assets/js/index.js"></script>
+</body>
+</html>
